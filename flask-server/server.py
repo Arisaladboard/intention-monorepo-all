@@ -38,7 +38,7 @@ def receive_data():
     
 @app.route("/api/contacts", methods=['GET'])
 def send_data():
-    return jsonify(contacts_processor.contacts)
+    return jsonify(contacts_processor.local_contacts)
 
 if __name__ == "__main__":
     # added host to test, it seems to make it work on android
