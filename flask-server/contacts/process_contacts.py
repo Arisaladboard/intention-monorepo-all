@@ -28,5 +28,12 @@ class ProcessContacts():
                 for contact in self.db_contacts:
                     print(contact)
 
-    def sync_contacts(self):
-        pass
+    # work in progress to insert in contacts that aren't already in the database
+    def sync_contacts(self, user_id):
+        with DBConnection() as db_conn:
+            if db_conn:
+                sql_statement = """
+                    INSERT INTO Contact (ContactID, FirstName, LastName, UserID) VALUES (%s, %s, %s, %s);
+                """
+                for i, contact in enumerate(self.local_contacts):
+                    db_conn.execute(sql_statement, (i, contact.firstName, contact.lastName, user_id))
