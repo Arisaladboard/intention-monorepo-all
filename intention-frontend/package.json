@@ -10,6 +10,7 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@react-native-clipboard/clipboard": "^1.13.2",
     "@types/react": "~18.2.14",
     "expo": "^50.0.2",
     "expo-build-properties": "~0.8.3",

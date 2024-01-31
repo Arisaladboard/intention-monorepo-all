@@ -10,7 +10,7 @@ export const sendContactsToBackend = async (contactsData: any[])=> {
         }))
 
         // using the address from host 0.0.0.0, makes it work on android
-        const response = await fetch('http://192.168.1.27:5100/api/contacts', {
+        const response = await fetch('http://127.0.0.1:5100/api/contacts', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -31,7 +31,7 @@ export const receiveContactsFromBackend = async ()=> {
     try {
         
         // using the address from host 0.0.0.0, makes it work on android
-        const response = await fetch('http://192.168.1.27:5100/api/contacts', {
+        const response = await fetch('http://127.0.0.1:5100/api/contacts', {
             method: 'GET',
         })
 
