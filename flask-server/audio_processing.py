@@ -1,6 +1,6 @@
 from openai import OpenAI
 
-client = OpenAI(api_key='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')
+client = OpenAI(api_key='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')
 
 def transcribe():
     media_file_path = 'flask-server/ben_andrew.caf.m4a'
@@ -18,7 +18,7 @@ def generate_summary(text):
         model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": "You are a helpful assistant. Talking directly to the user"},
-            {"role": "user", "content": f"Given some context of a person, can you give me a summary about them? More specifically, my relationship with them as well: {text}"}
+            {"role": "user", "content": f"Given some context of a person, can you give me a summary about them? More specifically my relationship with them as well: {text}"}
             ]
     )
     content_section = response.choices[0].message.content
@@ -29,7 +29,7 @@ def generate_questions(text):
         model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": "You are a helpful assistant. Talking directly to the user"},
-            {"role": "user", "content": f"Given some context of a person, can you give me some questions to ask them?:{text}"}
+            {"role": "user", "content": f"Given some context of a person, can you give me some questions to ask them?: {text}"}
             ]
     )
     content_section = response.choices[0].message.content

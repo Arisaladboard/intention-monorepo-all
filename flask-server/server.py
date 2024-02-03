@@ -49,7 +49,7 @@ def handle_generate_summary():
     
     # Generate summary using transcriber.py
     summary = generate_summary(text)
-
+    
     # Return the generated summary
     return jsonify({'summary': summary})
 

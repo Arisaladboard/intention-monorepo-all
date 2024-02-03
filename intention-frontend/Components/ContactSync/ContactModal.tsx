@@ -20,9 +20,9 @@ const ContactModal: React.FC <{contact: any; toggleModalVisibility: () => void }
             // Handle the response
             const data = await response.json();
             const generatedSummary = data.summary;
-
             // Update the state with the generated summary
             setSummary(generatedSummary);
+            
         } catch (error) {
             console.error('Error generating summary:', error);
         }
@@ -86,9 +86,7 @@ const ContactModal: React.FC <{contact: any; toggleModalVisibility: () => void }
                 <TouchableOpacity style = {styles.generateButton} onPress={generateQuestions}>
                     <Text style={styles.buttonText}>Generate Questions</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style = {styles.copyButton} onPress={async () => }>
-
-                </TouchableOpacity>
+                
  
                 <Button title="Edit Name"></Button>
                 <Button title="Close" onPress={toggleModalVisibility}></Button>
