@@ -1,55 +1,12 @@
 import React, {useState} from "react";
 import { View, Text, TextInput, Button, StyleSheet, Touchable, TouchableOpacity} from "react-native"
+import AI_Generations from "../AI_Generations/AI_Generations";
 
 const ContactModal: React.FC <{contact: any; toggleModalVisibility: () => void }> = ({contact, toggleModalVisibility})=> {
 
-    const [summary, setSummary] = useState<string>("");
-    const [questions, setQuestions] = useState<string>("");
+    // const [summary, setSummary] = useState<string>("");
+    // const [questions, setQuestions] = useState<string>("");
 
-    const generateSummary = async () => {
-        try {
-            // Make a network request to Flask server
-            const response = await fetch('http://127.0.0.1:5100/generate-summary', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ text: summary }), // Pass the text from the first textbox
-            });
-
-            // Handle the response
-            const data = await response.json();
-            const generatedSummary = data.summary;
-            // Update the state with the generated summary
-            setSummary(generatedSummary);
-            
-        } catch (error) {
-            console.error('Error generating summary:', error);
-        }
-    };
-
-
-    const generateQuestions = async () => {
-        try {
-            // Make a network request to Flask server
-            const response = await fetch('http://127.0.0.1:5100/generate-questions', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ text: questions }), // Pass the text from the second textbox
-            });
-
-            // Handle the response
-            const data = await response.json();
-            const generatedQuestions = data.questions;
-
-            // Update the state with the generated questions
-            setQuestions(generatedQuestions);
-        } catch (error) {
-            console.error('Error generating questions:', error);
-        }
-    };
 
     return (
         <View style={[styles.centeredView, styles.modalView]}>
@@ -58,36 +15,18 @@ const ContactModal: React.FC <{contact: any; toggleModalVisibility: () => void }
                     <Text style={[styles.modalText, {textAlign: 'center', paddingBottom: 40}]}>Contact details:</Text>
                     <Text style={styles.modalText}>Name: {`${contact.firstName} ${contact.lastName}`}</Text>
                     <Text style={styles.modalText}>Phone: 206-969-6969</Text>
-
-                    {/*Text Input for Notes*/}
-                    <TextInput
-                    style = {styles.notesInput}
-                    multiline
-                    numberOfLines={4}
-                    value={summary}
-                    onChangeText={(text) => setSummary(text)}
-                    placeholder="Please provide notes about ______"
-                    />
-                    <TextInput
-                    style = {styles.notesInput}
-                    multiline
-                    numberOfLines={4}
-                    value={questions}
-                    onChangeText={(text) => setQuestions(text)}
-                    placeholder="Click Generate Questions"
-                    />
                     
                 </View>
                 
-                {/* Buttons for generating summary and questions*/}
-                <TouchableOpacity style = {styles.generateButton} onPress={generateSummary}>
+                
+                {/* <TouchableOpacity style = {styles.generateButton} onPress={generateSummary}>
                     <Text style={styles.buttonText}>Generate Summary</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style = {styles.generateButton} onPress={generateQuestions}>
                     <Text style={styles.buttonText}>Generate Questions</Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
                 
- 
+                <AI_Generations></AI_Generations>
                 <Button title="Edit Name"></Button>
                 <Button title="Close" onPress={toggleModalVisibility}></Button>
 
