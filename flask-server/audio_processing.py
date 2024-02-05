@@ -1,6 +1,10 @@
 from openai import OpenAI
+from dotenv import load_dotenv
+load_dotenv()
+import os
 
-client = OpenAI(api_key='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')
+openai_key = os.getenv("OPENAI_KEY")
+client = OpenAI(api_key= openai_key)
 
 def transcribe():
     media_file_path = 'flask-server/ben_andrew.caf.m4a'
