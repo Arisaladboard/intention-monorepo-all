@@ -57,6 +57,16 @@ const TabsPage = () => {
       }}
       redirect={!isSignedIn}
       />
+<Tabs.Screen
+      name="notification"
+      options={{
+        headerTitle: 'Notification',
+        tabBarIcon: ({ color, size }) => <Ionicons name="person-outline" size={size} color={color} />,
+        tabBarLabel: 'Notification',
+        headerRight: () => <LogoutButton />
+      }}
+      redirect={!isSignedIn}
+      />
     </Tabs>
   );
 };
