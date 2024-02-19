@@ -4,7 +4,7 @@ load_dotenv()
 import os
 
 # should not keep visible, bad practice
-openai_key = os.getenv("OPENAI_KEY")
+openai_key = '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'
 client = OpenAI(api_key = openai_key)
 
 def transcribe():
