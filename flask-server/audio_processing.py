@@ -4,8 +4,14 @@ load_dotenv()
 import os
 
 # should not keep visible, bad practice
+<<<<<<< Updated upstream
 openai_key = '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'
 client = OpenAI(api_key = openai_key)
+=======
+# openai_key = os.getenv("OPENAI_KEY")
+OPENAI_KEY = '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'
+client = OpenAI(api_key=openai_key)
+>>>>>>> Stashed changes
 
 def transcribe():
     media_file_path = 'temp_audio/recording.m4a'
