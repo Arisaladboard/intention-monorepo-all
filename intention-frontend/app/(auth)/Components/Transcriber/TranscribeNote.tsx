@@ -136,12 +136,18 @@ const TranscriberNote: React.FC <{contact}> = ({contact})=> {
             const data = await response.json();
             const generatedQuestions = data.questions;
 
+            
             // Update the state with the generated questions
             setQuestions(generatedQuestions);
 
         } catch (error) {
             console.error('Error generating questions:', error);
         }
+    };
+
+    const copyToClipboard = (question) => {
+        // IMplement copy library
+        console.log('Copying question to clipboard: ', question);
     };
 
     
@@ -208,15 +214,15 @@ const TranscriberNote: React.FC <{contact}> = ({contact})=> {
                     <TouchableOpacity
                         style={styles.button}
                         onPress={generateQuestions}>
-                        {/* <MaterialCommunityIcons name="head-lightbulb-outline" size={24} color="black" /> */}
                         <MaterialCommunityIcons name="head-lightbulb" size={30} color="black" />
                         <Text style={styles.buttonText}>Questions</Text>
                     </TouchableOpacity>
                 </View>
             </View>
         </View>
-    )
-}
+        );
+    };
+
 const styles = StyleSheet.create ({
     notesInput: {
         maxHeight: 100,
